@@ -19,8 +19,7 @@ decl: ( var_decl | function_decl)*;
 array_decl: ARRAY LSB dimensions RSB OF atomictype;
 
 //EBNF: dimensions: dimen (COMMA dimen)*;
-dimensions: dimen COMMA dimensions | dimen;
-dimen: INTEGER_LITERAL;
+dimensions: INTEGER_LITERAL COMMA dimensions | INTEGER_LITERAL;
 
 atomictype: BOOLEAN | INTEGER | FLOAT | STRING;
 
@@ -29,8 +28,10 @@ var_decl: (identifier_list COLON decl_type | var_decl_full) SEMI;
 var_decl_full:
 	IDENTIFIER COMMA var_decl_full COMMA expression
 	| IDENTIFIER COLON decl_type ASSIGN expression;
+var_decl_nullable_list: var_decl var_decl_nullable_list |;
 
-identifier_list: IDENTIFIER (COMMA IDENTIFIER)*;
+//EBNF: identifier_list: IDENTIFIER (COMMA IDENTIFIER)*;
+identifier_list: IDENTIFIER COMMA identifier_list | IDENTIFIER;
 
 decl_type: atomictype | AUTO | array_decl;
 
@@ -39,12 +40,15 @@ parameter_decl: INHERIT? OUT? IDENTIFIER COLON decl_type;
 
 //3. <identifier>: function <return-type> (<paramter-list>) [inherit <function-name>]?
 function_decl:
-	IDENTIFIER COLON FUNCTION function_decl_type LP parameterdecl_list? RP (
-		INHERIT function_name
-	)? function_body;
-parameterdecl_list: parameter_decl (COMMA parameter_decl)*;
-
-function_name: IDENTIFIER;
+	IDENTIFIER COLON FUNCTION function_decl_type LP parameterdecl_nullable_list RP
+		inherit_parent_function_nullable function_body;
+//EBNF: parameterdecl_list: parameter_decl (COMMA parameter_decl)*;
+parameterdecl_list:
+	parameter_decl COMMA parameterdecl_list
+	| parameter_decl;
+parameterdecl_nullable_list: parameter_decl param_param |;
+param_param: COMMA parameter_decl param_param |;
+inherit_parent_function_nullable: INHERIT IDENTIFIER |;
 function_body: block_stmt;
 function_decl_type: decl_type | VOID;
 
@@ -64,7 +68,10 @@ expr_notlogical: NOT expr_notlogical | expr_term;
 expr_term: SUBOP expr_term | expr_indexop;
 expr_indexop: index_operator | operand;
 
-expression_list: expression (COMMA expression)*;
+//EBNF: expression_list: expression (COMMA expression)*;
+expression_list: expression COMMA expression_list | expression;
+expression_nullable_list: expression exprime |;
+exprime: COMMA expression exprime |;
 
 operand:
 	INTEGER_LITERAL
@@ -89,20 +96,33 @@ stmt: (
 	);
 
 index_operator: IDENTIFIER LSB expression_list RSB;
-function_call: IDENTIFIER LP expression_list? RP;
-function_argument: expression_list |;
+//EBNF: function_call: IDENTIFIER LP expression_list? RP;
+function_call: IDENTIFIER LP expression_nullable_list RP;
 
 assign_stmt: (index_operator | IDENTIFIER) ASSIGN expression SEMI;
-if_stmt: IF LP expression RP stmt (ELSE stmt)?;
+if_stmt: IF LP expression RP stmt else_stmt;
+else_stmt: ELSE stmt |;
 for_stmt:
 	FOR LP IDENTIFIER ASSIGN expression COMMA expression COMMA expression RP stmt;
-while_stmt: WHILE LP expression RP stmt*;
+
+//EBNF: while_stmt: WHILE LP expression RP stmt*;
+while_stmt: WHILE LP expression RP stmt_nullable_list;
+stmt_nullable_list: stmt stmt_nullable_list |;
+
 dowhile_stmt: DO block_stmt WHILE LP expression RP SEMI;
 break_stmt: BREAK SEMI;
 continue_stmt: CONTINUE SEMI;
-return_stmt: RETURN expression? SEMI;
-call_stmt: IDENTIFIER LP expression_list? RP SEMI;
-block_stmt: LCB (stmt | var_decl)* RCB;
+
+//EBNF: return_stmt: RETURN expression? SEMI;
+return_stmt: RETURN expression_nullable SEMI;
+expression_nullable: expression |;
+
+// call_stmt: IDENTIFIER LP expression_list? RP SEMI;
+call_stmt: IDENTIFIER LP expression_nullable_list RP SEMI;
+
+// block_stmt: LCB (stmt | var_decl)* RCB;
+block_stmt: LCB block_body RCB;
+block_body: stmt_nullable_list | var_decl_nullable_list;
 
 // Type system and values //// KEYWORDS
 BOOLEAN_LITERAL: TRUE | FALSE;
