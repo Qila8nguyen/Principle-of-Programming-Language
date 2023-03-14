@@ -29,11 +29,6 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by MT22Parser#dimen.
-    def visitDimen(self, ctx:MT22Parser.DimenContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by MT22Parser#atomictype.
     def visitAtomictype(self, ctx:MT22Parser.AtomictypeContext):
         return self.visitChildren(ctx)
@@ -56,11 +51,6 @@ class MT22Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by MT22Parser#identifier_list.
     def visitIdentifier_list(self, ctx:MT22Parser.Identifier_listContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MT22Parser#identifier.
-    def visitIdentifier(self, ctx:MT22Parser.IdentifierContext):
         return self.visitChildren(ctx)
 
 
