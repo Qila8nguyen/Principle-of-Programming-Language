@@ -1,0 +1,7 @@
+
+            main: function void () {
+                delta: string = "true";
+                4 = 5;
+                printString(delta);
+            }
+        

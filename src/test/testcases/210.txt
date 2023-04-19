@@ -1,0 +1,7 @@
+
+            main: function void () {
+                b: array [5] of integer;
+                k[4] = 3;
+                printInteger(h[4]);
+            }
+        

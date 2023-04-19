@@ -1,0 +1,7 @@
+
+            main: function void () {
+                s: boolean;
+                readBoolean(s);
+                printBoolean(s && && true || false);
+            }
+        

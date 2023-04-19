@@ -1,0 +1,7 @@
+
+            main: function void () {
+                a,b: string = "!false";
+                printString(a);
+                printString(c);
+            }
+        

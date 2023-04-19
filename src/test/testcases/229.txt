@@ -1,0 +1,14 @@
+
+            voidA: function string (s: string){
+                i: integer = 4;
+                while (i>0){
+                    s = s::"qua";
+                }
+                return s;
+            }
+            main: function void () {
+                delta: string = "av";
+                delta = voidA(delta);
+                printString(delta);
+            }
+        

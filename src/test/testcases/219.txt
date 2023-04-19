@@ -1,0 +1,7 @@
+
+            main: function void () {
+                delta: string;
+                delta = "abcd"::"298";
+                printBoolean(delta);
+            }
+        

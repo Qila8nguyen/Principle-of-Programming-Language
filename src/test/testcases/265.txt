@@ -1,0 +1,6 @@
+
+            main: function void () {
+                delta:= 34e2
+                printFloat(delta);
+            }
+        

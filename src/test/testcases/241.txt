@@ -1,0 +1,7 @@
+
+            main: function void () {
+                s: integer;
+                readInteger(s);
+                printInteger(s);
+            }
+        

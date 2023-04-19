@@ -1,0 +1,9 @@
+
+            r, s: integer = 5,10;
+            main: function void () {
+                a, b: array [5] of integer;
+                s = s * r * myPI;
+                a[0] = s;
+                printInteger(a[0]);
+            }
+        

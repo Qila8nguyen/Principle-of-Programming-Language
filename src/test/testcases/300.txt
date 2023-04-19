@@ -1,1 +1,10 @@
-x: integer;
+
+            main: function void () {
+                a, b: array [5] of integer;
+                a[0,] = 12;
+                b[1] = a[0];
+                printInteger(b[1]);
+                c = {32,2309,333}
+                c = {"eww", "q390", "ddd"}
+            }
+        

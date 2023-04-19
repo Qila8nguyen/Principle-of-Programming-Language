@@ -1,0 +1,8 @@
+
+            s: boolean = true;
+            main: function void () {
+                s = false;
+                printBoolean(s);
+                return
+            }
+        

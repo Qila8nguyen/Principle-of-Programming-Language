@@ -1,0 +1,13 @@
+
+            voidA: function integer(n: integer) inherit voidB{
+                return n%10;
+            }
+            voidB: function void (out n: integer){
+                n = n + 24;
+            }
+            main: function void () {
+                delta: integer = 5;
+                voidB(x,delta);
+                printInteger(x);
+            }
+        

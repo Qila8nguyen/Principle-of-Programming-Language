@@ -1,0 +1,10 @@
+
+            voidAB: function integer(n: integer){
+                return n+4+2;
+            }
+            main: function void () {
+                delta: integer = voidA(23);
+                delta = delta/2 + delta/2/3;
+                printInteger(delta);
+            }
+        

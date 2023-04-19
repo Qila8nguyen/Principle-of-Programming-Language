@@ -1,3 +1,1 @@
-Program([
-	VarDecl(x, IntegerType)
-])
+Error on line 4 col 20: ]

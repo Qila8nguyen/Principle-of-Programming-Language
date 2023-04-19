@@ -1,0 +1,8 @@
+
+            main: function void () {
+                a,c: string = "true","det/tsef";
+                v: string = a::c;
+                printString(a);
+                printString(v);
+            }
+        

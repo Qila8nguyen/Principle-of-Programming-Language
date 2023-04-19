@@ -1,0 +1,6 @@
+
+            main: function void () {
+                delta: bool = !true&&!false||true||false||!false;
+                printBoolean(delta);
+            }
+        

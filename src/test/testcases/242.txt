@@ -1,0 +1,7 @@
+
+            main: function void () {
+                s: string;
+                readString(s);
+                printString(s::"acd");
+            }
+        

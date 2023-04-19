@@ -1,0 +1,14 @@
+
+            voidAB: function integer(n: integer){
+                for (i = n, i >= 0, i - 1) {
+                    if (4*2 > i){
+                        writeInt(i*2);
+                        return;
+                    }
+                }
+            }
+            main: function void () {
+                voidAB(10);
+                printInteger("/ndone");
+            }
+        

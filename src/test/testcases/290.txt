@@ -1,0 +1,6 @@
+
+            s: string = "daylastring";
+            main: function void () {
+                printString(s::);
+            }
+        

@@ -1,0 +1,1 @@
+ ww,q : array [10_2,33] of boolean = 2,true; 

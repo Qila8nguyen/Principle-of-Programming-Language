@@ -1,0 +1,6 @@
+
+            main: function void () {
+                delta: integer = 3+/2;
+                printInteger(delta);
+            }
+        

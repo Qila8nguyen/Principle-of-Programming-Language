@@ -1,0 +1,7 @@
+
+            main: function void () {
+                delta string = "av";
+                delta = voidA(delta);
+                printString(delta);
+            }
+        

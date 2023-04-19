@@ -1,0 +1,1 @@
+main,:,function,void,(,),{,b,:,array,[,5,],of,integer,=,[,1,,,2,,,3,,,4,,,6,],;,printInteger,(,b,[,4,],),;,},<EOF>

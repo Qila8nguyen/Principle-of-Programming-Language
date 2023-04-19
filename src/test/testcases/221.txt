@@ -1,0 +1,7 @@
+
+            main: function void () {
+                a,c: boolean = true,!false;
+                printBoolean(a);
+                printBoolean(c);
+            }
+        

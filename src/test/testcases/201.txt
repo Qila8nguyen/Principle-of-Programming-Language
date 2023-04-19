@@ -1,1 +1,10 @@
-delta: integer = 3;
+
+            x: integer = 65;
+            mess: function void (n: integer){
+                return n/50 * 2;
+            }
+            main: function void () {
+                delta: integer = makdhlawkdlqw();
+                pri(delta);
+            }
+        

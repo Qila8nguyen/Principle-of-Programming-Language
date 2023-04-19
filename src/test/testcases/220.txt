@@ -1,0 +1,7 @@
+
+            main: function void () {
+                delta: boolean = true;
+                temp: boolean = !delta||false||!false;
+                printBoolean(temp);
+            }
+        

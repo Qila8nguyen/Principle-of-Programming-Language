@@ -1,0 +1,11 @@
+
+            main: function void () {
+                for (i = 10, i >= 0, i - 1) {
+                    if (4*2 > i){
+                        writeInt(i*2);
+                        break;
+                    }
+                }
+                return;
+            }
+        
