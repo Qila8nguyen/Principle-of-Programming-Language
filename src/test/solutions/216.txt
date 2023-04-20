@@ -1,1 +1,3 @@
-successful
+Program([
+	VarDecl(newStr, StringType, BinExpr(::, StringLit(Hello ), StringLit(World!)))
+])

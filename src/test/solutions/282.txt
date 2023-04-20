@@ -1,1 +1,3 @@
-Error on line 2 col 39: integer
+Program([
+	FuncDecl(fefef, IntegerType, [], None, BlockStmt([VarDecl(a, BooleanType, ArrayCell(arr, [FuncCall(foo, [])])), VarDecl(b, BooleanType, ArrayCell(arr, [IntegerLit(1), IntegerLit(2)]))]))
+])

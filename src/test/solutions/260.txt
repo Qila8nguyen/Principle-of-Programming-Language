@@ -1,1 +1,5 @@
-Error on line 3 col 29: integer
+Program([
+	VarDecl(a, IntegerType, IntegerLit(2))
+	VarDecl(s, IntegerType, IntegerLit(3))
+	VarDecl(d, IntegerType, IntegerLit(4))
+])

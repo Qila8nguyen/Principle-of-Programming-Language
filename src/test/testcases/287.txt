@@ -1,6 +1,6 @@
 
-            s: string = "daylastring";
-            main: function void () {
-                (s);
-            }
-        
+		learningtofly: function integer() {
+				return !-1;
+		}
+
+		

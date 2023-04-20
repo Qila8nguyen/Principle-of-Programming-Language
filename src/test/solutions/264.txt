@@ -1,1 +1,3 @@
-Error on line 5 col 26: +
+Program([
+	FuncDecl(inc, VoidType, [InheritParam(a, IntegerType), InheritOutParam(b, IntegerType), InheritParam(c, BooleanType), OutParam(d, IntegerType)], None, BlockStmt([]))
+])

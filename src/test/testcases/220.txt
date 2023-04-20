@@ -1,7 +1,7 @@
 
-            main: function void () {
-                delta: boolean = true;
-                temp: boolean = !delta||false||!false;
-                printBoolean(temp);
-            }
-        
+		main: function void(){
+			foo(12);
+			fee(13);
+			fum(14+12, a&&b);
+		}
+		

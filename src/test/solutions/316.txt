@@ -1,0 +1,10 @@
+Program([
+	FuncDecl(a8, FloatType, [OutParam(d5, AutoType)], c6, BlockStmt([AssignStmt(ArrayCell(a8, [FloatLit(19.8)]), StringLit(aaaaa))]))
+	VarDecl(e2, StringType)
+	VarDecl(b1, StringType)
+	VarDecl(a2, FloatType, IntegerLit(276))
+	VarDecl(c3, FloatType, UnExpr(!, IntegerLit(158)))
+	VarDecl(b10, FloatType, BooleanLit(True))
+	FuncDecl(c9, FloatType, [InheritOutParam(a6, FloatType)], None, BlockStmt([IfStmt(FuncCall(c9, [ArrayCell(b10, [StringLit(this is string)])]), IfStmt(ArrayCell(e5, [IntegerLit(856), IntegerLit(449)]), AssignStmt(ArrayCell(b5, [StringLit(aaaaa)]), BooleanLit(True)), ForStmt(AssignStmt(Id(a7), IntegerLit(599)), StringLit(this is string), FloatLit(49.6), BlockStmt([])))), VarDecl(d10, IntegerType, IntegerLit(781))]))
+	FuncDecl(e6, VoidType, [], c3, BlockStmt([]))
+])

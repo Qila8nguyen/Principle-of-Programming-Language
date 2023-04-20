@@ -1,1 +1,4 @@
-successful
+Program([
+	VarDecl(A, IntegerType, IntegerLit(5))
+	VarDecl(B, IntegerType, IntegerLit(6))
+])

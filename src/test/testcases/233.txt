@@ -1,10 +1,10 @@
 
-            main: function void () {
-                for (i = 1, i < 10, i + 1) {
-                    if (4*2 > i){
-                        writeInt(i);
-                        break;
-                    }
-                }
-            }
-        
+		main: function void() {
+			if (a&&B) {
+				if (true) a = a + 1;
+				else continue;
+			} else  // no expr
+				break;
+			return true;
+		}
+		

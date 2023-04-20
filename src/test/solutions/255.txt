@@ -1,1 +1,4 @@
-Error on line 2 col 12: function
+Program([
+	FuncDecl(fact, IntegerType, [Param(n, IntegerType)], None, BlockStmt([IfStmt(BinExpr(==, Id(n), IntegerLit(0)), ReturnStmt(IntegerLit(1)), ReturnStmt(BinExpr(*, Id(n), FuncCall(fact, [BinExpr(-, Id(n), IntegerLit(1))]))))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([CallStmt(printInt, FuncCall(fact, [IntegerLit(5)]))]))
+])

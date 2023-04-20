@@ -1,10 +1,10 @@
 
-            r, s: integer;
-            main: function void () {
-                a, b: array [5] of integer;
-                r = 2.0;
-                s = r * r * ;
-                a[0] = s;
-                printInteger(a[0]);
-            }
-        
+		learningtofly: function integer() {
+            if (1) 
+                if (2) 
+                    if (3) 
+                        a=4;
+                    else
+                        a=5;
+		}
+		

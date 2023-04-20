@@ -1,7 +1,9 @@
 
-            main: function void () {
-                a,b: string = "!false";
-                printString(a);
-                printString(c);
-            }
-        
+		main: function void() {
+			n = {1,2,3}::{1,2,3};
+			str1 = "23r"::n;
+			for (i = 0, i < 10, a :: 23) {
+				a = -a;
+			}
+		}
+		

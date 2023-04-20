@@ -1,7 +1,5 @@
 
-            main: function void () 
-                s: integer;
-                readInteger(s);
-                printInteger(s);
-            }
-        
+		learningtofly: function integer() {
+			return foo(1_2 + 2 || 4 :: 5);
+		}
+		

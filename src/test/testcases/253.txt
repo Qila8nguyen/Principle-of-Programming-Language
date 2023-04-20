@@ -1,15 +1,11 @@
 
-            x: integer65;
-            fact: function integer(n: integer){
-                if (n == 0) return 1;
-                else return n * fact(n-1);
-            }
-            inc: function void (out n: integer, delta: integer){
-                n = n + delta;
-            }
-            main: function void () {
-                delta := fact(3);
-                inc(x,delta);
-                printInteger(x);
-            }
-        
+		// program to print all odd number from 1 to 5000
+		main: function void() {
+			for (i = 1, i <= 5000,  i + 1)
+			{
+				/* check if i is odd or not */
+				if (i % 2 == 1)
+					printInt(i);
+			}
+		}
+		

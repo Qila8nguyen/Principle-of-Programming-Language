@@ -1,9 +1,5 @@
 
-            voidAB: function integer(){
-                return 4+2;
-            }
-            main: function void () {
-                delta: integer = ();
-                printInteger(delta);
-            }
-        
+		learningtofly: function integer() {
+				return !!!1;
+		}
+		

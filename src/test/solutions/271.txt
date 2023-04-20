@@ -1,1 +1,3 @@
-Error on line 4 col 30: :
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([AssignStmt(Id(n), BinExpr(::, FuncCall(ff, []), FuncCall(dd, [])))]))
+])

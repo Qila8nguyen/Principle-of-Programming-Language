@@ -1,6 +1,26 @@
 
-            main: function void () {
-                delta: float == 3.45;
-                printFloat(delta);
-            }
-        
+		// bubble sort implementation
+		bubble: function void(inherit out arr: array[10] of integer) {
+			for (i = 0, i < 10,  i + 1)
+			{
+				for (j = 0, j < 10 - i - 1,  j + 1)
+				{
+					if (arr[j] > arr[j + 1])
+					{
+						temp : integer;
+						temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+					}
+				}
+			}
+			return;
+		}
+		main: function void() {
+			arr : array[10] of integer = {1,2,3,4,5,6,7,8,9,10};
+			bubble(arr);
+			for (i = 0, i < 10,  i + 1)
+				printInt(arr[i]);
+		}
+
+		

@@ -1,9 +1,12 @@
 
-            function void () {
-                i: integer = 10;
-                while (i>20){
-                    i+=2;
-                }
-                return  i;
-            }
-        
+		// program to find the factorial of a number
+		fact: function integer(n: integer) {
+			if (n == 0)
+				return 1;
+			else
+				return n * fact(n - 1);
+		}
+		main: function void() {
+			printInt(fact(5));
+		}
+		

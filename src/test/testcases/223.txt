@@ -1,8 +1,8 @@
 
-            main: function void () {
-                a,c: string = "true","!false";
-                v: string = a::c;
-                printString(a);
-                printString(v);
-            }
-        
+		main: function void() {
+			a : integer = 3;
+			b : integer = a;
+			a = b;
+			b = foo(a&&b);
+		}
+		

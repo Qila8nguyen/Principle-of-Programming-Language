@@ -1,0 +1,19 @@
+
+		a8: function float ( out d5: auto) inherit c6
+	{
+		a8[19.8] = "aaaaa";
+	}
+e2,b1: string;
+a2,c3,b10: float = 276,!158,true;
+c9: function float (inherit out a6: float) 
+	{
+		if (c9(b10["this is string"]))
+			if (e5[856,449])
+				b5["aaaaa"] = true;
+		else 	for (a7=599,"this is string",49.6)
+				{}
+		d10: integer = 781;
+	}
+e6: function void () inherit c3
+	{}
+		

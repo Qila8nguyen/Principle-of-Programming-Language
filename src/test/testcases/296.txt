@@ -1,7 +1,8 @@
 
-            main: function void () {
-                s float;
-                readFloat(s);
-                printFloat(s + 40.9);
-            }
-        
+		learningtofly: function integer() {
+			break; continue; break; continue;
+			while (1) {
+				break; continue; break; continue;
+				}
+		}
+		

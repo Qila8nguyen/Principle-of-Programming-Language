@@ -1,10 +1,8 @@
 
-            r, s: integer;
-            main: function void () {
-                a, b: array [5] of integer;
-                r = 2.0;
-                s = r * r * myPI;
-                a[0] = s;
-                printInteger(a[0]);
-            }
-        
+		main: function void() {
+			while (foo(a&&b + f00(12) != 10 && A))
+			{
+				continue;
+			}
+		}
+		

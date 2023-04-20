@@ -1,7 +1,5 @@
 
-            main: function void () {
-                delta string = "av";
-                delta = voidA(delta);
-                printString(delta);
-            }
-        
+		fefef : function integer() {
+			a, b: boolean = arr[0,1], arr[1,2];
+		}
+		

@@ -1,1 +1,4 @@
-successful
+Program([
+	VarDecl(A, AutoType, IntegerLit(1))
+	VarDecl(B, AutoType, FuncCall(foo, [IntegerLit(4)]))
+])

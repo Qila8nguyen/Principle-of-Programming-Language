@@ -1,10 +1,3 @@
 
-            main: function void () {
-                i: integer = -10;
-                do{
-                    i = i++;
-                }
-                while (i!=0);
-                return  i;
-            }
-        
+		inc: function void(inherit a: integer, inherit out b: integer, inherit c:boolean, out d:integer) {}
+		

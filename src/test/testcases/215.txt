@@ -1,6 +1,3 @@
 
-            main: function void () {
-                delta: string = "true";
-                printString(delta);
-            }
-        
+		 boo: boolean =  a && b || c && !d;
+		

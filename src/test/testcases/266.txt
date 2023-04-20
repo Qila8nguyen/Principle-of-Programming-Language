@@ -1,7 +1,17 @@
 
-            main: function void () {
-                delta: string = "true";
-                4 = 5;
-                printString(delta);
-            }
-        
+		main: function void() {
+			n : integer;
+			print("Enter n: ");
+			n = readInt();
+			print("Factorial of ");
+			printInt(n);
+			print(" is ");
+			printInt(fact(n));
+		}
+		fact: function integer(n: integer) {
+			if (n == 0)
+				return 1;
+			else
+				return n * fact(n - 1);
+		}
+		

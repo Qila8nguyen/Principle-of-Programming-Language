@@ -1,7 +1,7 @@
 
-            main: function void () {
-                s: boolean;
-                readBoolean(s);
-                printBoolean(s && true || false);
-            }
-        
+		main: function void() {
+			for (i = foo(12 * 3), i <= 10 && a || b,  foo(i))
+				if (a == 1) continue;
+				else break;
+		}
+		

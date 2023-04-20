@@ -1,0 +1,3 @@
+Program([
+	VarDecl(a, ArrayType([1, 5], IntegerType), ArrayLit([BinExpr(-, BinExpr(+, IntegerLit(1), IntegerLit(1)), IntegerLit(2)), BinExpr(-, BinExpr(*, IntegerLit(2), IntegerLit(3)), IntegerLit(4)), FloatLit(0.0), FloatLit(150000.0), FloatLit(1.5e-05)]))
+])

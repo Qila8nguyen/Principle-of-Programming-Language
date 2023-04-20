@@ -1,10 +1,8 @@
 
-            main: function void () {
-                for (i = 1, i < 10; i + 1) {
-                    if (4*2 > i){
-                        writeInt(i);
-                        break;
-                    }
-                }
-            }
-        
+		fefef : function integer() {
+			do {
+			}
+			while ( arr[foo()]::arr[1,2] > 1 + 2 );
+			return 1;
+		}
+		

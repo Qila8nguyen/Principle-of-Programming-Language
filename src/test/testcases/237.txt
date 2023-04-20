@@ -1,9 +1,8 @@
 
-            voidAB: function integer(){
-                return 4+2;
-            }
-            main: function void () {
-                delta: integer = voidAB();
-                printInteger(delta);
-            }
-        
+		main: function void() {
+			for (i = 1, i <= 10, 1 + i)
+			{
+				a = a + 1;
+			}
+		}
+		

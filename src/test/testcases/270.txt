@@ -1,6 +1,6 @@
 
-            main: function void () {
-                delta: bool = !true&&!false||true||false||!false;
-                printBoolean(delta);
-            }
-        
+		main: function void() {
+			n = {1,2,3}::{1,2,3};
+			str1 = "23r"::"23432aa";
+		}
+		

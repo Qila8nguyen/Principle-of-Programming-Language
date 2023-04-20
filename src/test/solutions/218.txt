@@ -1,1 +1,3 @@
-successful
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(Arr, ArrayType([5], IntegerType), ArrayLit([IntegerLit(1), IntegerLit(2), IntegerLit(3), IntegerLit(4), IntegerLit(5)])), AssignStmt(Id(a), ArrayCell(Arr, [BinExpr(+, IntegerLit(3), IntegerLit(1))]))]))
+])

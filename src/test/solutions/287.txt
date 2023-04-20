@@ -1,1 +1,3 @@
-Error on line 4 col 16: (
+Program([
+	FuncDecl(learningtofly, IntegerType, [], None, BlockStmt([ReturnStmt(UnExpr(!, UnExpr(-, IntegerLit(1))))]))
+])

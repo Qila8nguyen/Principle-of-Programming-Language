@@ -1,1 +1,6 @@
-Error on line 8 col 16: return
+Program([
+	VarDecl(port, IntegerType, IntegerLit(80))
+	VarDecl(host, StringType, StringLit(localhost))
+	FuncDecl(startServer, VoidType, [], None, BlockStmt([VarDecl(server, AutoType, FuncCall(newServer, [Id(host), Id(port)])), CallStmt(start, Id(server))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([CallStmt(startServer, )]))
+])

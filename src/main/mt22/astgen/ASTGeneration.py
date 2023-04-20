@@ -12,7 +12,7 @@ class ASTGeneration(MT22Visitor):
     def visitDecl_program(self, ctx:MT22Parser.Decl_programContext):
         if ctx.getChildCount() == 0:
             return []
-        return [self.visit(ctx.decl())] + self.visit(ctx.decl_program())
+        return self.visit(ctx.decl()) + self.visit(ctx.decl_program())
 
 
     # Visit a parse tree produced by MT22Parser#decl.
@@ -40,8 +40,8 @@ class ASTGeneration(MT22Visitor):
     # dimensions: INTEGER_LITERAL COMMA dimensions | INTEGER_LITERAL;
     def visitDimensions(self, ctx:MT22Parser.DimensionsContext):
         if ctx.COMMA():
-            return [IntegerLit(ctx.INTEGER_LITERAL().getText())] + self.visit(ctx.dimensions())
-        return [IntegerLit(ctx.INTEGER_LITERAL().getText())]
+            return [ctx.INTEGER_LITERAL().getText()] + self.visit(ctx.dimensions())
+        return [ctx.INTEGER_LITERAL().getText()]
 
 
     # Visit a parse tree produced by MT22Parser#var_decl.
@@ -71,7 +71,7 @@ class ASTGeneration(MT22Visitor):
             return id_list, exp_list, typ
         else:
             typ2 = self.visit(ctx.decl_type())
-            return [id],[exp], str(typ2)
+            return [id],[exp], typ2
 
 
 
@@ -81,8 +81,8 @@ class ASTGeneration(MT22Visitor):
     def visitIdentifier_list(self, ctx:MT22Parser.Identifier_listContext):
         id = ctx.IDENTIFIER().getText()
         if ctx.COMMA():
-            return [Id(id)] + self.visit(ctx.identifier_list())
-        return [Id(id)]
+            return [id] + self.visit(ctx.identifier_list())
+        return [id]
 
 
     # Visit a parse tree produced by MT22Parser#atomictype.
@@ -102,23 +102,23 @@ class ASTGeneration(MT22Visitor):
     def visitDecl_type(self, ctx:MT22Parser.Decl_typeContext):
         if ctx.AUTO():
             return AutoType()
-        return self.visit(ctx.getChild(1))
+        return self.visit(ctx.getChild(0))
 
     # Visit a parse tree produced by MT22Parser#function_decl.
     # function_decl: IDENTIFIER COLON FUNCTION function_decl_type LP parameterdecl_list? RP (
 	# 	INHERIT IDENTIFIER
 	# )? block_stmt;
     def visitFunction_decl(self, ctx:MT22Parser.Function_declContext):
-        name = ctx.IDENTIFIER()
+        name = ctx.IDENTIFIER(0).getText()
         typ = self.visit(ctx.function_decl_type())
         param_list = []
         parent = None
         if ctx.parameterdecl_list(): 
             param_list = self.visit(ctx.parameterdecl_list())
         if ctx.INHERIT():
-            parent = ctx.IDENTIFIER().getText()
+            parent = ctx.IDENTIFIER(1).getText()
         func_body = self.visit(ctx.block_stmt())
-        return FuncDecl(name = name, return_type = typ, params = param_list, inherit = parent, body = func_body)
+        return [FuncDecl(name = name, return_type = typ, params = param_list, inherit = parent, body = func_body)]
 
 
     # Visit a parse tree produced by MT22Parser#parameterdecl_list.
@@ -151,7 +151,7 @@ class ASTGeneration(MT22Visitor):
     # Visit a parse tree produced by MT22Parser#expression.
     def visitExpression(self, ctx:MT22Parser.ExpressionContext):
         if ctx.getChildCount() != 1:
-            op = ctx.getChild(1)
+            op = ctx.getChild(1).getText()
             left = self.visit(ctx.getChild(0))
             right = self.visit(ctx.getChild(2))
             return BinExpr(op = op, left = left, right = right)
@@ -161,7 +161,7 @@ class ASTGeneration(MT22Visitor):
     # Visit a parse tree produced by MT22Parser#expr.
     def visitExpr(self, ctx:MT22Parser.ExprContext):
         if ctx.getChildCount() != 1:
-            op = ctx.getChild(1)
+            op = ctx.getChild(1).getText()
             left = self.visit(ctx.getChild(0))
             right = self.visit(ctx.getChild(2))
             return BinExpr(op = op, left = left, right = right)
@@ -171,7 +171,7 @@ class ASTGeneration(MT22Visitor):
     # Visit a parse tree produced by MT22Parser#expr_logical.
     def visitExpr_logical(self, ctx:MT22Parser.Expr_logicalContext):
         if ctx.getChildCount() != 1:
-            op = ctx.getChild(1)
+            op = ctx.getChild(1).getText()
             left = self.visit(ctx.getChild(0))
             right = self.visit(ctx.getChild(2))
             return BinExpr(op = op, left = left, right = right)
@@ -181,7 +181,7 @@ class ASTGeneration(MT22Visitor):
     # Visit a parse tree produced by MT22Parser#expr_adding.
     def visitExpr_adding(self, ctx:MT22Parser.Expr_addingContext):
         if ctx.getChildCount() != 1:
-            op = ctx.getChild(1)
+            op = ctx.getChild(1).getText()
             left = self.visit(ctx.getChild(0))
             right = self.visit(ctx.getChild(2))
             return BinExpr(op = op, left = left, right = right)
@@ -193,7 +193,7 @@ class ASTGeneration(MT22Visitor):
 	# | expr_notlogical;
     def visitExpr_multiplying(self, ctx:MT22Parser.Expr_multiplyingContext):
         if ctx.getChildCount() != 1:
-            op = ctx.getChild(1)
+            op = ctx.getChild(1).getText()
             left = self.visit(ctx.getChild(0))
             right = self.visit(ctx.getChild(2))
             return BinExpr(op = op, left = left, right = right)
@@ -204,7 +204,7 @@ class ASTGeneration(MT22Visitor):
     # expr_notlogical: NOT expr_notlogical | expr_term;
     def visitExpr_notlogical(self, ctx:MT22Parser.Expr_notlogicalContext):
         if ctx.NOT():
-            op = ctx.NOT()
+            op = ctx.NOT().getText()
             val = self.visit(ctx.expr_notlogical())
             return UnExpr(op = op, val = val)
         return self.visit(ctx.expr_term())
@@ -213,51 +213,63 @@ class ASTGeneration(MT22Visitor):
     # Visit a parse tree produced by MT22Parser#expr_term.
     # expr_term: SUBOP expr_term | expr_indexop;
     def visitExpr_term(self, ctx:MT22Parser.Expr_termContext):
-        op = ctx.SUBOP()
-        expr_term = self.visit(ctx.expr_term())
-        return UnExpr(op = op, val = expr_term)
+        if ctx.SUBOP():
+            op = ctx.SUBOP().getText()
+            expr_term = self.visit(ctx.expr_term())
+            return UnExpr(op = op, val = expr_term)
+        return self.visit(ctx.expr_indexop())
 
 
     # Visit a parse tree produced by MT22Parser#expr_indexop.
     def visitExpr_indexop(self, ctx:MT22Parser.Expr_indexopContext):
-        if ctx.operand():
-            self.visit(ctx.operand())
-        return self.visit(ctx.index_operator())
+       return self.visit(ctx.getChild(0))
 
 
     # Visit a parse tree produced by MT22Parser#expression_list.
+    # expression_list: expression COMMA expression_list | expression;
     def visitExpression_list(self, ctx:MT22Parser.Expression_listContext):
-        return self.visitChildren(ctx)
+        if ctx.COMMA():
+            return [self.visit(ctx.expression())] + self.visit(ctx.expression_list())
+        else:
+            return [self.visit(ctx.expression())]
 
 
     # Visit a parse tree produced by MT22Parser#stmt.
+    # stmt: (
+	# 	assign_stmt
+	# 	| if_stmt
+	# 	| for_stmt
+	# 	| while_stmt
+	# 	| dowhile_stmt
+	# 	| break_stmt
+	# 	| continue_stmt
+	# 	| return_stmt
+	# 	| call_stmt
+	# 	| block_stmt
+	# );
     def visitStmt(self, ctx:MT22Parser.StmtContext):
-        return self.visitChildren(ctx)
+        return self.visit(ctx.getChild(0))
 
 
     # Visit a parse tree produced by MT22Parser#operand.
-    # operand:
-	# INTEGER_LITERAL
-	# | function_call
-    # | array_lit
-	# | FLOAT_LITERAL
-	# | STRING_LITERAL
-	# | BOOLEAN_LITERAL
-	# | IDENTIFIER;
     def visitOperand(self, ctx:MT22Parser.OperandContext):
         if ctx.INTEGER_LITERAL():
             return IntegerLit(ctx.INTEGER_LITERAL().getText())
         if ctx.FLOAT_LITERAL():
-            return FloatLit(ctx.FLOAT_LITERAL().getText())
+            return FloatLit(float(ctx.FLOAT_LITERAL().getText()))
         if ctx.STRING_LITERAL():
             return StringLit(ctx.STRING_LITERAL().getText())
         if ctx.BOOLEAN_LITERAL():
             return BooleanLit(ctx.BOOLEAN_LITERAL().getText() == 'true')
         if ctx.IDENTIFIER():
             return Id(ctx.IDENTIFIER().getText())
-        if ctx.array_lit():
-            return self.visit(ctx.array_list())
+        if ctx.array_literal():
+            return self.visit(ctx.array_literal())
         return self.visit(ctx.function_call())
+    
+    # Visit a parse tree produced by MT22Parser#subexp.
+    def visitSubexp(self, ctx:MT22Parser.SubexpContext):
+        return self.visit(ctx.expression())
 
 
     # Visit a parse tree produced by MT22Parser#index_operator.
@@ -269,33 +281,54 @@ class ASTGeneration(MT22Visitor):
 
 
     # Visit a parse tree produced by MT22Parser#assign_stmt.
+    # assign_stmt: lhs ASSIGN expression SEMI
     def visitAssign_stmt(self, ctx:MT22Parser.Assign_stmtContext):
-        return self.visitChildren(ctx)
+        lhs = self.visit(ctx.lhs())
+        rhs = self.visit(ctx.expression())
+        return AssignStmt(lhs,rhs)
 
 
     # Visit a parse tree produced by MT22Parser#if_stmt.
+    # if_stmt: IF LP expression RP stmt (ELSE stmt)?;
     def visitIf_stmt(self, ctx:MT22Parser.If_stmtContext):
-        return self.visitChildren(ctx)
+        condExpr = self.visit(ctx.expression())
+        thenStmt = self.visit(ctx.stmt(0))
+        elseStmt = self.visit(ctx.stmt(1)) if ctx.ELSE() else None
+        return IfStmt(condExpr,thenStmt,elseStmt)
 
+
+    # Visit a parse tree produced by MT22Parser#lhs.
+    def visitLhs(self, ctx:MT22Parser.LhsContext):
+        lhs = Id(ctx.IDENTIFIER().getText()) if ctx.IDENTIFIER() else self.visit(ctx.getChild(0))
+        return lhs
 
     # Visit a parse tree produced by MT22Parser#for_stmt.
+    # for_stmt:
+	# FOR LP lhs ASSIGN expression COMMA expression COMMA expression RP stmt;
     def visitFor_stmt(self, ctx:MT22Parser.For_stmtContext):
-        return self.visitChildren(ctx)
+        lhs = self.visit(ctx.lhs())
+        exp0 = self.visit(ctx.expression(0))
+        exp1 = self.visit(ctx.expression(1))
+        exp2 = self.visit(ctx.expression(2))
+        stmt = self.visit(ctx.stmt())
+        assignStmt = AssignStmt(lhs, exp0)
+        return ForStmt(init = assignStmt, cond = exp1, upd = exp2, stmt = stmt)
 
 
     # Visit a parse tree produced by MT22Parser#while_stmt.
+    # while_stmt: WHILE LP expression RP stmt;
     def visitWhile_stmt(self, ctx:MT22Parser.While_stmtContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by MT22Parser#stmt_nullable_list.
-    def visitStmt_nullable_list(self, ctx:MT22Parser.Stmt_nullable_listContext):
-        return self.visitChildren(ctx)
+        exp = self.visit(ctx.expression())
+        stmt = self.visit(ctx.stmt())
+        return WhileStmt(cond = exp, stmt = stmt)
 
 
     # Visit a parse tree produced by MT22Parser#dowhile_stmt.
+    # dowhile_stmt: DO block_stmt WHILE LP expression RP SEMI;
     def visitDowhile_stmt(self, ctx:MT22Parser.Dowhile_stmtContext):
-        return self.visitChildren(ctx)
+        block = self.visit(ctx.block_stmt())
+        exp = self.visit(ctx.expression())
+        return DoWhileStmt(cond = exp, stmt = block)
 
 
     # Visit a parse tree produced by MT22Parser#break_stmt.
@@ -310,25 +343,28 @@ class ASTGeneration(MT22Visitor):
 
     # Visit a parse tree produced by MT22Parser#return_stmt.
     def visitReturn_stmt(self, ctx:MT22Parser.Return_stmtContext):
-        if ctx.expression:
-            exp = self.visit(ctx.expressioin())
-            return ReturnStmt(exp)
-        return ReturnStmt()
+        exp = self.visit(ctx.expression()) if ctx.expression() else None
+        return ReturnStmt(exp)
 
 
     # Visit a parse tree produced by MT22Parser#call_stmt.
+    # call_stmt: function_call SEMI;
     def visitCall_stmt(self, ctx:MT22Parser.Call_stmtContext):
-        return self.visitChildren(ctx)
+        funcCall = self.visit(ctx.function_call())
+        return CallStmt(name = funcCall.name, args = funcCall.args)
 
 
     # Visit a parse tree produced by MT22Parser#block_stmt.
     def visitBlock_stmt(self, ctx:MT22Parser.Block_stmtContext):
-        return self.visitChildren(ctx)
+        body = self.visit(ctx.block_body())
+        print(len(body))
+        return BlockStmt(body)
 
 
     # Visit a parse tree produced by MT22Parser#bbody.
+    # bbody: stmt | var_decl;
     def visitBbody(self, ctx:MT22Parser.BbodyContext):
-        return self.visit(ctx.getChild(0))
+        return [self.visit(ctx.getChild(0))] if ctx.stmt() else self.visit(ctx.getChild(0))
 
 
     # Visit a parse tree produced by MT22Parser#block_body.
@@ -342,5 +378,5 @@ class ASTGeneration(MT22Visitor):
     # function_call: IDENTIFIER LP expression_list? RP;
     def visitFunction_call(self, ctx:MT22Parser.Function_callContext):
         id = ctx.IDENTIFIER().getText()
-        exp_list = self.visit(ctx.expression_list())
+        exp_list = self.visit(ctx.expression_list()) if ctx.expression_list() else []
         return FuncCall(name = id, args = exp_list)

@@ -1,1 +1,3 @@
-successful
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([DoWhileStmt(BinExpr(!=, Id(i), BinExpr(+, IntegerLit(10), IntegerLit(12))), BlockStmt([ContinueStmt()]))]))
+])

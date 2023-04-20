@@ -1,6 +1,5 @@
-
-            main: function void () {
-                delta: integer = 3+34*30/5*16/4*2/2+19%4+2%2;
-                printInteger(delta);
-            }
-        
+ 
+			inc: function void(out n: integer) {
+				n  = n+ 1;
+				return n;
+			}

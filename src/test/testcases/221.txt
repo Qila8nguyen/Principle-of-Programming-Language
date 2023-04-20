@@ -1,7 +1,7 @@
 
-            main: function void () {
-                a,c: boolean = true,!false;
-                printBoolean(a);
-                printBoolean(c);
-            }
-        
+		main: function void() {
+			a : boolean = foo(12);
+			b = fee(13);
+			c = fum(14+12, a&&b);
+		}
+		

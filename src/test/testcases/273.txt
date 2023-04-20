@@ -1,7 +1,9 @@
 
-            main: function void () {
-                a,c: boolean = true,!false;
-                printBoolean;
-                printBoolean(c);
-            }
-        
+		main: function void() {
+			n = {1,2,3}::{1,2,3};
+			str1 = "23r"::n;
+			for (i = 0, i < 10, i :: 23) {
+				a = -a;
+			}
+		}
+		

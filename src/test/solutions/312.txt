@@ -1,0 +1,3 @@
+Program([
+	VarDecl(a, FloatType, FloatLit(150000.0))
+])

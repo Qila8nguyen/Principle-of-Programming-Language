@@ -117,6 +117,11 @@ class TestAST:
         TestAST.check(SOL_DIR, inputfile, num)
         dest = open(os.path.join(SOL_DIR, str(num) + ".txt"), "r")
         line = dest.read()
+        print('*******  OUT PUT ' + str(num-300) + ' **** \n' )
+        print(line)
+        print('**** Expect \n' )
+        print(expect)
+        print('++++++++++++++++ \n' )
         return line == expect
 
     @staticmethod

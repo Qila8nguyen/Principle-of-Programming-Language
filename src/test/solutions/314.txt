@@ -1,0 +1,3 @@
+Program([
+	VarDecl(a, IntegerType, FuncCall(b, [IntegerLit(1)]))
+])

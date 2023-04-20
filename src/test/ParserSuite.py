@@ -698,10 +698,13 @@ class ParserSuite(unittest.TestCase):
                 }
                 return s;
             }
+           
             main: function void () {
                 delta: string = "av";
                 delta = voidA(delta);
                 printString(delta);
+
+                 while(a < 0) {}
             }
         """
         expect = "successful"
@@ -1120,7 +1123,7 @@ class ParserSuite(unittest.TestCase):
                 {
                     i = i - 1;
                 }
-                while (i!=0)
+                while (i!=0) {}
                 return  i;
             }
         """
@@ -1474,7 +1477,7 @@ class ParserSuite(unittest.TestCase):
                 printInteger(delta);
             }
         """
-        expect = "Error on line 6 col 33: ("
+        expect = "Error on line 6 col 34: )"
         self.assertTrue(TestParser.test(input, expect, 289))
 
     def test_parser90(self):
@@ -1599,7 +1602,7 @@ class ParserSuite(unittest.TestCase):
             main: function void () {
                 a, b: array [5] of integer;
                 a[0,] = 12;
-                b[1] = a[0];
+                b[1] = a[0] + (100*30);
                 printInteger(b[1]);
                 c = {32,2309,333}
                 c = {"eww", "q390", "ddd"}

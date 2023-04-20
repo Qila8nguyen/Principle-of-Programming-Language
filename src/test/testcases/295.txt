@@ -1,7 +1,5 @@
 
-            main: function void () {
-                s: boolean;
-                readBoolean(s);
-                printBoolean(s && && true || false);
-            }
-        
+		learningtofly: function integer() {
+			return !32_23_12-3_6-2;
+		}
+		

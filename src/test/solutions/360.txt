@@ -1,0 +1,3 @@
+Program([
+	FuncDecl([<antlr4.tree.Tree.TerminalNodeImpl object at 0x104c9ff80>], VoidType, [Param(x, AutoType)], None, [])
+])

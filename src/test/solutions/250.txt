@@ -1,1 +1,3 @@
-successful
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([ReturnStmt(BinExpr(&&, Id(a), BinExpr(+, Id(b), BinExpr(%, IntegerLit(10), IntegerLit(12)))))]))
+])

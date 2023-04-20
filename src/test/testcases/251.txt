@@ -1,10 +1,6 @@
 
-            x integer = 65;
-            mess: function integer(n: integer){
-                return n/50 * 2;
-            }
-            main: function void () {
-                delta: integer = mess(7);
-                printInteger(delta);
-            }
-        
+		main: function void() {
+			foo(12);
+			e2q(foo(12 + w(12)) + 21 && a || b);
+		}
+		

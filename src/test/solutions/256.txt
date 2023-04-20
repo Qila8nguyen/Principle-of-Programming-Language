@@ -1,1 +1,4 @@
-Error on line 3 col 25: /
+Program([
+	FuncDecl(maxmat, IntegerType, [OutParam(mat, ArrayType([3, 3], IntegerType))], None, BlockStmt([VarDecl(max, IntegerType), AssignStmt(Id(max), ArrayCell(mat, [IntegerLit(0), IntegerLit(0)])), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), IntegerLit(10)), BinExpr(+, Id(i), IntegerLit(1)), BlockStmt([ForStmt(AssignStmt(Id(j), IntegerLit(0)), BinExpr(<, Id(j), IntegerLit(10)), BinExpr(+, Id(j), IntegerLit(1)), BlockStmt([IfStmt(BinExpr(>, ArrayCell(mat, [Id(i), Id(j)]), Id(max)), AssignStmt(Id(max), ArrayCell(mat, [Id(i), Id(j)])))]))])), ReturnStmt(Id(max))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(mat, ArrayType([3, 3], IntegerType), ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(2), IntegerLit(3)]), ArrayLit([IntegerLit(4), IntegerLit(5), IntegerLit(6)]), ArrayLit([IntegerLit(7), IntegerLit(8), IntegerLit(9)])])), CallStmt(printInt, FuncCall(maxmat, [Id(mat)]))]))
+])

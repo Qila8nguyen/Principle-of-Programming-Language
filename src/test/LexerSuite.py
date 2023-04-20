@@ -585,8 +585,8 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.test(input, expect, 73))
 
     def test_lexer74(self):
-        input = "a[3 + x.foo(2)] = a[b[2]] + 3;"
-        expect = "a,[,3,+,x,.,foo,(,2,),],=,a,[,b,[,2,],],+,3,;,<EOF>"
+        input = "a[3 + x.foo(2)] = a[b[2]] + 3 * (600-4)/30 ;"
+        expect = "a,[,3,+,x,.,foo,(,2,),],=,a,[,b,[,2,],],+,3,*,(,600,-,4,),/,30,;,<EOF>"
         self.assertTrue(TestLexer.test(input, expect, 74))
 
     def test_lexer75(self):

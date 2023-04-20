@@ -1,1 +1,3 @@
-successful
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([AssignStmt(Id(eq), BinExpr(==, Id(a), Id(b))), AssignStmt(Id(neq), BinExpr(!=, Id(a), Id(b))), AssignStmt(Id(lt), BinExpr(<, Id(a), Id(b))), AssignStmt(Id(le), BinExpr(<=, Id(a), Id(b))), AssignStmt(Id(gt), BinExpr(>, Id(a), Id(b))), AssignStmt(Id(ge), BinExpr(>=, Id(a), Id(b)))]))
+])

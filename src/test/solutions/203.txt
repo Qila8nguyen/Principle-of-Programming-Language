@@ -1,1 +1,4 @@
-successful
+Program([
+	VarDecl(A, StringType, StringLit(abc))
+	VarDecl(B, StringType, StringLit(def))
+])

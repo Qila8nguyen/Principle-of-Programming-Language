@@ -1,7 +1,7 @@
 
-            main: void () {
-                delta: integer = 34+-4--5;
-                delta = delta*2;
-                printInteger(delta);
-            }
-        
+		fefef : function integer() {
+			do {
+			}
+			while ( arr[foo()]::arr[1,2] );
+		}
+		

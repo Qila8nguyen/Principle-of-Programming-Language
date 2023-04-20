@@ -1,6 +1,1 @@
-
-            main: function void () {
-                delta: boolean = true;
-                printBoolean(delta++);
-            }
-        
+a: integer = 3;b,c:string = "abc","def";

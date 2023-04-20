@@ -1,1 +1,3 @@
-Error on line 3 col 18: float
+Program([
+	FuncDecl(learningtofly, IntegerType, [], None, BlockStmt([BreakStmt(), ContinueStmt(), BreakStmt(), ContinueStmt(), WhileStmt(IntegerLit(1), BlockStmt([BreakStmt(), ContinueStmt(), BreakStmt(), ContinueStmt()]))]))
+])

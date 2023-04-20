@@ -1,1 +1,3 @@
-successful
+Program([
+	VarDecl(a, IntegerType, FuncCall(f00, [BinExpr(-, IntegerLit(22), FuncCall(foo, [BinExpr(+, Id(a), FuncCall(too, [Id(a)]))]))]))
+])

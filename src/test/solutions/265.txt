@@ -1,1 +1,4 @@
-Error on line 3 col 22: =
+Program([
+	FuncDecl(caclPi, FloatType, [Param(n, IntegerType)], None, BlockStmt([VarDecl(pi, FloatType, IntegerLit(0)), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), Id(n)), BinExpr(+, Id(i), IntegerLit(1)), BlockStmt([VarDecl(t, FloatType, BinExpr(%, Id(i), IntegerLit(2))), IfStmt(BinExpr(==, Id(t), IntegerLit(0)), AssignStmt(Id(pi), BinExpr(+, BinExpr(+, Id(pi), BinExpr(*, BinExpr(/, IntegerLit(4), IntegerLit(2)), Id(i))), IntegerLit(1))), AssignStmt(Id(pi), BinExpr(+, BinExpr(-, Id(pi), BinExpr(*, BinExpr(/, IntegerLit(4), IntegerLit(2)), Id(i))), IntegerLit(1))))])), ReturnStmt(Id(pi))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([DoWhileStmt(BinExpr(!=, Id(n), IntegerLit(0)), BlockStmt([VarDecl(n, IntegerType), CallStmt(print, StringLit(Enter n: )), AssignStmt(Id(n), FuncCall(readInt, [])), CallStmt(print, StringLit(Pi = )), CallStmt(printFloat, FuncCall(caclPi, [Id(n)])), CallStmt(print, StringLit(\n))]))]))
+])

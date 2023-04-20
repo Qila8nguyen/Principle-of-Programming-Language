@@ -1,7 +1,5 @@
 
-            main: function void () {
-                delta: string;
-                delta = "abcd":"298";
-                printBoolean(delta);
-            }
-        
+		main: function void() {
+			n = ff()::dd();
+		}
+		

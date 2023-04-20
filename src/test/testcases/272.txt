@@ -1,7 +1,5 @@
 
-            main: function void () {
-                delta: boolean = true;
-                temp: boolean = !delta false||!false;
-                printBoolean(temp);
-            }
-        
+		main: function void() {
+			a = {1+2,2/4};
+		}
+		

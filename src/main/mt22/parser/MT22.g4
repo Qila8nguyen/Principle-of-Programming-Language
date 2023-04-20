@@ -61,7 +61,8 @@ expr_multiplying:
 	| expr_notlogical;
 expr_notlogical: NOT expr_notlogical | expr_term;
 expr_term: SUBOP expr_term | expr_indexop;
-expr_indexop: index_operator | operand;
+expr_indexop: index_operator | operand | subexp;
+subexp: LP expression RP;
 
 //EBNF: expression_list: expression (COMMA expression)*;
 expression_list: expression COMMA expression_list | expression;
@@ -94,14 +95,13 @@ operand:
 
 index_operator: IDENTIFIER LSB expression_list RSB;
 
-assign_stmt: (index_operator | IDENTIFIER) ASSIGN expression SEMI;
+assign_stmt: lhs ASSIGN expression SEMI;
+lhs: index_operator | IDENTIFIER;
 if_stmt: IF LP expression RP stmt (ELSE stmt)?;
 for_stmt:
-	FOR LP IDENTIFIER ASSIGN expression COMMA expression COMMA expression RP stmt;
+	FOR LP lhs ASSIGN expression COMMA expression COMMA expression RP stmt;
 
-//EBNF: while_stmt: WHILE LP expression RP stmt*;
-while_stmt: WHILE LP expression RP stmt_nullable_list;
-stmt_nullable_list: stmt stmt_nullable_list |;
+while_stmt: WHILE LP expression RP stmt;
 
 dowhile_stmt: DO block_stmt WHILE LP expression RP SEMI;
 break_stmt: BREAK SEMI;

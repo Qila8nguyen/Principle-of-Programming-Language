@@ -1,1 +1,3 @@
-Error on line 3 col 34: ;
+Program([
+	FuncDecl(fefef, IntegerType, [], None, BlockStmt([DoWhileStmt(BinExpr(::, ArrayCell(arr, [FuncCall(foo, [])]), BinExpr(>, ArrayCell(arr, [IntegerLit(1), IntegerLit(2)]), BinExpr(+, IntegerLit(1), IntegerLit(2)))), BlockStmt([])), ReturnStmt(IntegerLit(1))]))
+])

@@ -1,8 +1,9 @@
 
-            main: function void () {
-                a, b: array [5] of integer;
-                a[0] = 12;
-                b[1] = a[0];
-                printInteger(b[1]);
-            }
-        
+		main: function void() {
+			do 
+				{
+					do{}while(false);
+				}
+			while (i != 10 + 12);
+		}
+		

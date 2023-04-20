@@ -1,9 +1,17 @@
 
-            main: function void () {
-                i: integer = 10;
-                while (i=0){
-                    i--;
-                }
-                return  i;
-            }
-        
+		// program to calculate the sum of all even numbers from 1 to 100
+		calc: function void(out sum: integer) {
+			sum = 0;
+			for (i = 1, i <= 100,  i + 1)
+			{
+				/* check if i is even or not */
+				if (i % 2 == 0)
+					sum = sum + i;
+			}
+			return;
+		}
+		main: function void() {
+			sum : integer;
+			calc(sum);
+		}
+		

@@ -1,6 +1,11 @@
 
-            s: string = "daylastring";
-            main: function void () {
-                printString(s);
-            }
-        
+		main: function void() {
+			if (a&&B) {
+				if (true) a = a + 1;
+				else continue;
+			} 
+			else if (true) a = a + 1;
+			else continue;
+			return true;
+		}
+		

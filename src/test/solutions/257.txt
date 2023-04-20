@@ -1,1 +1,4 @@
-Error on line 2 col 27: (
+Program([
+	FuncDecl(summat, IntegerType, [OutParam(mat, ArrayType([3, 3], IntegerType))], None, BlockStmt([VarDecl(sum, IntegerType), AssignStmt(Id(sum), IntegerLit(0)), ForStmt(AssignStmt(Id(i), IntegerLit(0)), BinExpr(<, Id(i), IntegerLit(10)), BinExpr(+, Id(i), IntegerLit(1)), BlockStmt([ForStmt(AssignStmt(Id(j), IntegerLit(0)), BinExpr(<, Id(j), IntegerLit(10)), BinExpr(+, Id(j), IntegerLit(1)), BlockStmt([AssignStmt(Id(sum), BinExpr(+, Id(sum), ArrayCell(mat, [Id(i), Id(j)])))]))])), ReturnStmt(Id(sum))]))
+	FuncDecl(main, VoidType, [], None, BlockStmt([VarDecl(mat, ArrayType([3, 3], IntegerType), ArrayLit([ArrayLit([IntegerLit(1), IntegerLit(2), IntegerLit(3)]), ArrayLit([IntegerLit(4), IntegerLit(5), IntegerLit(6)]), ArrayLit([IntegerLit(7), IntegerLit(8), IntegerLit(9)])])), CallStmt(printInt, FuncCall(summat, [Id(mat)]))]))
+])

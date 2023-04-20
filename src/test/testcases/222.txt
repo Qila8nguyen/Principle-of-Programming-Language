@@ -1,7 +1,6 @@
 
-            main: function void () {
-                a,c: string = "true","!false";
-                printString(a);
-                printString(c);
-            }
-        
+		main: function void() {
+		b = fee(foo(13));
+		c = fum(14+12, foo(a&&b));
+		}
+		

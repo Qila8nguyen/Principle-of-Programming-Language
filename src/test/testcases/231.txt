@@ -1,10 +1,8 @@
 
-            voidA: function integer(n: array[5] of integer){
-                return n[4];
-            }
-            main: function void () {
-                delta: integer = 34+-4--5;
-                delta = delta*2;
-                printInteger(delta);
-            }
-        
+		main: function void() {
+			if (a&&B) {
+				a = b;
+				c = d;
+			} else {} // empty
+		}
+		

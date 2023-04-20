@@ -1,1 +1,6 @@
-successful
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([]))
+	FuncDecl(fact, IntegerType, [Param(n, IntegerType)], None, BlockStmt([]))
+	FuncDecl(inc, VoidType, [OutParam(n, IntegerType), Param(delta, IntegerType)], None, BlockStmt([]))
+	FuncDecl(autofact, AutoType, [Param(n, IntegerType)], None, BlockStmt([]))
+])

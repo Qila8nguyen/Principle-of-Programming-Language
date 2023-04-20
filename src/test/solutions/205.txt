@@ -1,1 +1,4 @@
-successful
+Program([
+	VarDecl(A, BooleanType, BooleanLit(True))
+	VarDecl(B, BooleanType, BooleanLit(False))
+])

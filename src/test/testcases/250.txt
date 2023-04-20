@@ -1,8 +1,5 @@
 
-            main: function void () {
-                a: array [5,2] of integer;
-                a[0,1] = 2;
-                a[0,2] = 5;
-                printInteger(a[0,1] + a[0,2]);
-            }
-        
+		main: function void() {
+			return a && b + 10 % 12;
+		}
+		

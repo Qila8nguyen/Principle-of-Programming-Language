@@ -1,13 +1,12 @@
 
-            voidA: integer(n: integer) inherit voidB{
-                return n%10;
-            }
-            voidB: function void (out n: integer, delta: integer){
-                n = n + voidA(delta);
-            }
-            main: function void () {
-                delta: integer = 5;
-                voidB(x,delta);
-                printInteger(x);
-            }
-        
+			foo2: function string (out a: integer, b: integer) inherit foo1 {
+				for (i = 0, i < 10, i == 2) {
+					a = -a;
+				}
+				/*foo3: function string() { 
+					for (i = init(i), foo4(i), i == 2) 
+						a = a + 1;
+				}*/
+				return "abc";
+			}
+		

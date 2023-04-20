@@ -1,1 +1,3 @@
-successful
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([AssignStmt(Id(b), FuncCall(fee, [FuncCall(foo, [IntegerLit(13)])])), AssignStmt(Id(c), FuncCall(fum, [BinExpr(+, IntegerLit(14), IntegerLit(12)), FuncCall(foo, [BinExpr(&&, Id(a), Id(b))])]))]))
+])

@@ -1,1 +1,3 @@
-Error on line 3 col 27: ;
+Program([
+	FuncDecl(main, VoidType, [], None, BlockStmt([]))
+])

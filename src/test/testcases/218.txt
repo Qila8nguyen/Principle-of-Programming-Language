@@ -1,6 +1,6 @@
 
-            main: function void () {
-                delta: boolean = !true&&!false||true||false||!false;
-                printBoolean(delta);
-            }
-        
+		main: function void(){
+			Arr: array[5] of integer = {1,2,3,4,5};
+			a = Arr[3+1];
+		}
+		
